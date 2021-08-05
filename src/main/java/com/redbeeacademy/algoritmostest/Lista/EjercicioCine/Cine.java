@@ -1,5 +1,7 @@
 package com.redbeeacademy.algoritmostest.Lista.EjercicioCine;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /*
@@ -25,20 +27,41 @@ Tenemos la clase Persona, donde vamos a usarla para modelar edad, y las propieda
 public class Cine {
 
     public static double cantidadTotalRecaudada(List<Persona> personas){
+        List<Persona> copy = new ArrayList<Persona>(personas);
+        copy.removeAll(Collections.singleton(null));
         double cantidadTotal = 0;
-        //TODO -> implement me
+        for(int i = 0;i<copy.size();i++){
+            if(copy.get(i).getEdad() >= 5 && copy.get(i).getEdad() <= 10){
+                cantidadTotal += 100;
+            }else if(copy.get(i).getEdad() > 10 && copy.get(i).getEdad() <= 17){
+                cantidadTotal += 150;
+            }else{
+                cantidadTotal += 200;
+            }
+        }
         return cantidadTotal;
     }
 
     public static Integer cantidadPersonas(List<Persona> personas){
         Integer cantidadPersonas = 0;
-        //TODO -> implement me
+        List<Persona> copy = new ArrayList<Persona>(personas);
+        copy.removeAll(Collections.singleton(null));
+        for(int i = 0; i < copy.size();i++){
+            cantidadPersonas += 1;
+        }
         return cantidadPersonas;
     }
 
     public static double promedioEdad(List<Persona> personas){
         double promedio = 0;
-        //TODO -> implement me
+        double sum = 0;
+        List<Persona> copy = new ArrayList<Persona>(personas);
+        copy.removeAll(Collections.singleton(null));
+        for(int i = 0; i < copy.size();i++){
+            sum += copy.get(i).getEdad();
+        }
+        promedio = (sum/copy.size());
         return promedio;
+
     }
 }
