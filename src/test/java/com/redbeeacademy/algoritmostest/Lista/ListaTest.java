@@ -3,7 +3,7 @@ package com.redbeeacademy.algoritmostest.Lista;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,7 +37,7 @@ class ListaTest {
     @Test
     @DisplayName("Test when null values are sent add first")
     public void testNullValuesSwap() {
-        List<Integer> result = Lista.intercambiar(List.of(1, 5, 6, 7, null, 2));
+        List<Integer> result = Lista.intercambiar(Arrays.asList(1, 5, 6, 7, null, 2));
         assertNotNull(result, "The result cannot be null");
         assertEquals(List.of(1, 5, 2, 7, 6), result);
     }
@@ -53,7 +53,7 @@ class ListaTest {
     @Test
     @DisplayName("Test when null values are sent add first")
     public void testNullValuesAddFirst() {
-        List<Integer> result = Lista.agregarElementoAlInicio(List.of(1, 5, 6, null, 8, 2), 7);
+        List<Integer> result = Lista.agregarElementoAlInicio(Arrays.asList(1, 5, 6, null, 8, 2), 7);
         assertNotNull(result, "The result cannot be null");
         assertEquals(List.of(7, 1, 5, 6, 8, 2), result);
     }
@@ -69,7 +69,7 @@ class ListaTest {
     @Test
     @DisplayName("Test when null values are sent prom list")
     public void testNullValuesPromList() {
-        Double result = Lista.promedioLista(List.of(1, 5, 6, null, 8, 2));
+        Double result = Lista.promedioLista(Arrays.asList(1, 5, 6, null, 8, 2));
         assertNotNull(result, "The result cannot be null");
         assertEquals(4.4, result);
     }
@@ -85,7 +85,7 @@ class ListaTest {
     @Test
     @DisplayName("Test when null values are sent removed max")
     public void testNullValuesRemovedMax() {
-        List<Integer> result = Lista.eliminarMaximo(List.of(1, 5, 6, null, 8, 2));
+        List<Integer> result = Lista.eliminarMaximo(Arrays.asList(1, 5, 6, null, 8, 2));
         assertNotNull(result, "The result cannot be null");
         assertEquals(List.of(1, 5, 6, 2), result);
     }
@@ -102,7 +102,7 @@ class ListaTest {
     @Test
     @DisplayName("Test when null values are sent repeated")
     public void testNullValuesRepeated() {
-        List<Integer> result = Lista.repetidos(List.of(1, 5, 6, null, 8, 2), List.of(4, 7, 9, 1));
+        List<Integer> result = Lista.repetidos(Arrays.asList(1, 5, 6, null, 8, 2), Arrays.asList(4, 7, 9, 1));
         assertNotNull(result, "The result cannot be null");
         assertEquals(List.of(1), result);
     }
